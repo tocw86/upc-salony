@@ -12,4 +12,4 @@ Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The appli
 
 ## Description
 
-The UPC Showroom Locator is an interactive web application developed for UPC Poland, designed to assist customers in effortlessly locating UPC showrooms across the country. Leveraging the power of Angular and the Angular GMap plugin, the application provides a user-friendly, intuitive map interface where users can view the exact locations of UPC showrooms, get essential details, and plan their visits conveniently.
+The UPC Showroom Locator is an interactive web application developed for UPC Poland, designed to assist customers in effortlessly locating UPC showrooms across the country. Leveraging the power of Angular and the Angular Google maps plugin, the application provides a user-friendly, intuitive map interface where users can view the exact locations of UPC showrooms, get essential details, and plan their visits conveniently.
