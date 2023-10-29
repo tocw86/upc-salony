@@ -83,7 +83,7 @@ export class MainMapComponent implements OnInit, OnDestroy {
 
     this.apiLoaded = httpClient
       .jsonp(
-        'https://maps.googleapis.com/maps/api/js?key=AIzaSyBaPvhiBsXcC5jP8QHB7I4X7iYEAQp0PXk' +
+        'https://maps.googleapis.com/maps/api/js?key=?????' +
           '&sensor=true&libraries=geometry',
         'callback'
       )
