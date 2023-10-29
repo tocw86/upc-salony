@@ -1,0 +1,17 @@
+<div class="city-top-list form section">
+  <div class="lgi-form" *ngIf="lbokList">
+    <div class="select-form-container">
+      <div class="select-label">Wybierz swoje miasto:</div>
+      <div class="lgi-form-field-container">
+        <ng-select
+          [(ngModel)]="selectedCity"
+          [placeholder]="'Wybierz miasto'"
+          (change)="citySelected()"
+          (clear)="resetMap()"
+        >
+          <ng-option *ngFor="let showroom of uniqueCities" [value]="showroom">{{ showroom.city }}</ng-option>
+        </ng-select>
+      </div>
+    </div>
+  </div>
+</div>

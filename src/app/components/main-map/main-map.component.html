@@ -1,0 +1,28 @@
+<div *ngIf="apiLoaded | async">
+  <ng-container *ngIf="lbokList.length">
+    <google-map
+      #map
+      width="100%"
+      [height]="mapHeight"
+      [center]="center"
+      [zoom]="zoom"
+      [options]="options"
+      (zoomChanged)="onZoomChanged()"
+      (mapDragend)="onZoomChanged()"
+    >
+      <div class="h-100">
+        <map-marker-clusterer [styles]="clusterStyle">
+          <map-marker
+            #markerElem="mapMarker"
+            *ngFor="let marker of lbokList | activePipe"
+            [position]="marker.latlng"
+            [title]="marker.city"
+            [options]="marker.options"
+            (mapClick)="openModal(marker)"
+          >
+          </map-marker>
+        </map-marker-clusterer>
+      </div>
+    </google-map>
+  </ng-container>
+</div>

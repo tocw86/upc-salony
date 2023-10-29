@@ -1,0 +1,18 @@
+<IfModule mod_rewrite.c>
+    RewriteEngine on
+
+    # force HTTPS
+    RewriteCond %{HTTPS} !^on$
+    RewriteCond %{HTTP_HOST} !=localhost
+    RewriteCond %{REMOTE_ADDR} !=127.0.0.1
+    RewriteCond %{HTTP_COOKIE} !test-data-source=1;? [NC]
+    RewriteRule (.*) https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
+
+    # Don't rewrite files or directories
+    RewriteCond %{REQUEST_FILENAME} -f [OR]
+    RewriteCond %{REQUEST_FILENAME} -d
+    RewriteRule ^ - [L]
+
+    # Rewrite everything else to index.html to allow HTML5 state links
+    RewriteRule ^ index.html [L]
+</IfModule>

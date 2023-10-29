@@ -1,0 +1,23 @@
+<div class="lbok-info" *ngIf="showroom">
+  <div class="lbok-info-icon salon brand__container">
+    <img
+      [src]="
+        showroom.isPlay ? apiUrl + '/assets/images/play-with-marker.svg' : apiUrl + '/assets/images/upc-with-marker.svg'
+      "
+    />
+  </div>
+  <p class="lbok-info-city">{{ showroom.city }}</p>
+  <p class="special-info" *ngIf="!showroom.content || showroom.content == ''"><strong>Salon zamknięty</strong></p>
+  <p class="lbok-info-street">{{ showroom.street }}</p>
+
+  <div class="nearest-action">
+    <div class="distance-col">
+      <div>{{ showroom.distance / 1000 | number: '1.2-2' }} km</div>
+    </div>
+    <div class="action-col">
+      <button type="button" class="lgi_btn_txt_2 clearboth lbok-info-more" (click)="centerOnMarker()">
+        <span class="lgi_b_ico floatright lgi_b_ico2"></span><span>Zobacz</span>
+      </button>
+    </div>
+  </div>
+</div>

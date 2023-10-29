@@ -1,0 +1,107 @@
+.header {
+  background-color: #f5f5f5;
+  border-bottom: 1px solid #e9ebf1;
+  min-height: 1em;
+  padding: 1em;
+  position: relative;
+  overflow: hidden;
+}
+
+.info {
+  font-family: 'HCo Gotham Rounded SSm', Geneva, Verdana, sans-serif;
+  font-size: 0.9rem;
+  min-height: 220px;
+  padding: 1em;
+  position: relative;
+  border-bottom: solid 2px #e9ebf1;
+
+  @media screen and (max-width: 478px) {
+    font-size: 0.75rem;
+  }
+}
+
+.header .title {
+  font-family: 'speak_heavy', Arial, sans-serif;
+  font-size: 1.2em;
+  color: #333;
+  padding-right: 2em;
+  padding-left: 2.4em;
+}
+
+.info .street {
+  width: auto;
+}
+
+.contact-info-booksy > .address > .street {
+  min-width: 13em;
+  margin-right: 1em;
+}
+
+.info .content {
+  position: relative;
+}
+
+.info .content .days-list {
+  list-style: none;
+}
+
+.info .contact-info {
+  margin-top: 2em;
+}
+
+.extra-info {
+  font-family: 'HCo Gotham Rounded SSm', Geneva, Verdana, sans-serif;
+  font-size: 0.8em;
+  padding: 1.5em;
+  min-height: 1em;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  background-color: #fff;
+}
+
+.extra-info .handicap,
+.extra-info .contact-us {
+  flex: 1 1 auto;
+  margin-bottom: 0;
+  margin-top: auto;
+}
+
+.extra-line.extra-space {
+  margin-top: 1em;
+}
+
+.extra-line {
+  padding-top: 0;
+}
+
+.extra-info .contact-us {
+  text-align: right;
+}
+
+.handicaps-container {
+  font-weight: bold;
+  margin-top: 2em;
+}
+
+.info .image {
+  position: absolute;
+  right: 1em;
+  top: 1em;
+  box-shadow: 0 0.625em 1.25em rgb(0 0 0 / 19%), 0 0.375em 0.375em rgb(0 0 0 / 23%);
+  padding: 0;
+}
+
+.info .image img {
+  float: left;
+  height: 200px;
+
+  @media screen and (max-width: 992px) {
+    height: auto;
+    max-width: 150px;
+  }
+
+  @media screen and (max-width: 478px) {
+    display: none;
+  }
+}

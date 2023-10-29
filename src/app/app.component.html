@@ -1,0 +1,11 @@
+<dmg-marker-modal></dmg-marker-modal>
+<div class="lbok-container" (resized)="onResized($event)">
+  <dmg-select-city [lbokList]="lbokList"></dmg-select-city>
+  <div class="map-container">
+    <div class="map-wrapper">
+      <dmg-main-map [lbokList]="lbokList"></dmg-main-map>
+    </div>
+    <dmg-showroom-list [lbokList]="lbokList"></dmg-showroom-list>
+  </div>
+</div>
+<ngx-spinner type="ball-clip-rotate" bdColor="rgba(255,255,255,0.8)" color="#239a98"></ngx-spinner>

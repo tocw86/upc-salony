@@ -1,0 +1,45 @@
+<div class="lbok-info" *ngIf="showroom">
+  <div class="lbok-info-icon salon brand__container">
+    <img
+      [src]="
+        showroom.isPlay ? apiUrl + '/assets/images/play-with-marker.svg' : apiUrl + '/assets/images/upc-with-marker.svg'
+      "
+    />
+  </div>
+  <p class="lbok-info-city">{{ showroom.city }}</p>
+  <p class="special-info" *ngIf="!showroom.content || showroom.content == ''"><strong>Salon zamknięty</strong></p>
+  <p class="lbok-info-street">{{ showroom.street }}</p>
+  <p class="lbok-info-phone" *ngIf="showroom.phone && showroom.phone != ''" [innerHTML]="phoneFormatted"></p>
+  <p class="lbok-info-email" *ngIf="showroom.email && showroom.email != ''">
+    <strong>email:</strong>
+    <a [href]="'mailto:' + showroom.email">{{ showroom.email }}</a>
+  </p>
+  <p *ngIf="showroom.content && showroom.content != ''" class="lbok-info-hours-title">Godz. otwarcia</p>
+  <div
+    *ngIf="showroom.content && showroom.content != ''"
+    class="lbok-info-schedule"
+    [innerHTML]="showroom.content"
+  ></div>
+  <div
+    *ngIf="generateHandicaps && generateHandicaps != ''"
+    class="lbok-info-available-handicaps"
+    style="font-weight: bold"
+    [innerHTML]="generateHandicaps"
+  ></div>
+  <div
+    *ngIf="showroom.specialInfo && showroom.specialInfo != ''"
+    class="special-info"
+    [innerHTML]="showroom.specialInfo"
+  ></div>
+  <p *ngIf="showroom.handicap" class="lbok-info-accessibility">
+    Podjazd dla niepełnosprawnych <span class="icon-accessibility"></span>
+  </p>
+  <button
+    type="button"
+    class="lgi_btn_txt_2 clearboth lbok-info-more"
+    (click)="openModal()"
+    *ngIf="showroom.content && showroom.content != ''"
+  >
+    <span class="lgi_b_ico floatright lgi_b_ico2"></span><span>Więcej</span>
+  </button>
+</div>

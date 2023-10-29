@@ -1,0 +1,55 @@
+<div class="list-container" *ngIf="lbokList" [ngClass]="{ 'one-item': lbokList.length === 1 }">
+  <svg class="hidden">
+    <defs>
+      <symbol id="svg-tear">
+        <g transform="translate(0.000000,73.000000) scale(0.100000,-0.100000)" stroke="none">
+          <path
+            d="M210 697 c-128 -44 -189 -122 -198 -254 -4 -67 -2 -78 28 -140 41
+          -83 125 -169 242 -247 l88 -58 85 56 c114 74 204 166 245 249 30 62 32 73 28
+          140 -12 181 -138 277 -362 277 -67 0 -108 -6 -156 -23z"
+          ></path>
+        </g>
+      </symbol>
+    </defs>
+  </svg>
+  <div class="lbok-list">
+    <h2 class="lbok-list-title">
+      <span class="salon tear-container"
+        ><svg version="1.0" viewBox="0 0 74.000000 73.000000" preserveAspectRatio="xMidYMid meet" class="tear-svg">
+          <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-tear"></use></svg
+        >&nbsp;
+        <svg
+          version="1.0"
+          viewBox="0 0 74.000000 73.000000"
+          preserveAspectRatio="xMidYMid meet"
+          class="tear-svg play-tear"
+        >
+          <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-tear"></use></svg
+      ></span>
+      Salony, Punkty Sprzedaży UPC i Play
+    </h2>
+    <ul
+      class="lbok-item-list"
+      (scroll)="onScrollLoadData($event)"
+      #scrollList
+      *ngIf="lbokList && lbokList.length; else elseEmptyListBlock"
+    >
+      <ng-container *ngFor="let item of lbokList | cityPipe: selectedShowroom; index as i">
+        <li [ngClass]="{ 'play-item': item.isPlay }" class="lbok-item item-bok" *ngIf="i < pageCounter">
+          <dmg-showroom-item [showroom]="item"></dmg-showroom-item>
+        </li>
+      </ng-container>
+    </ul>
+    <ng-template #elseEmptyListBlock>
+      <ng-container *ngIf="isZoomedListIsEmpty">
+        <ul class="lbok-item-list">
+          <ng-container *ngFor="let item of nearestShowrooms | activePipe">
+            <li [ngClass]="{ 'play-item': item.isPlay }" class="lbok-item item-bok">
+              <dmg-nearest-item [showroom]="item"></dmg-nearest-item>
+            </li>
+          </ng-container>
+        </ul>
+      </ng-container>
+    </ng-template>
+  </div>
+</div>

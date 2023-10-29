@@ -1,0 +1,729 @@
+@import 'ngx-smart-modal/ngx-smart-modal';
+@import '@ng-select/ng-select/themes/default.theme.css';
+
+body {
+  color: #333;
+  background-color: transparent;
+}
+
+.lbok-container * {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.lbok-container {
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 40px;
+  padding: 5rem;
+}
+
+.map-container {
+  position: relative;
+  width: 100%;
+  display: inline-block;
+  border: 1px solid #edeff4;
+  border-radius: 5px;
+  background-color: #fff;
+  height: auto;
+  max-height: 790px;
+  padding: 1rem;
+  margin-bottom: 2rem;
+
+  .map-wrapper {
+    font-family: Arial, sans-serif;
+    background: #fff;
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    /*padding-bottom: 56.25%; 16:9 */
+    /*padding-bottom: 75%;  4:3 */
+    height: 450px;
+    padding-bottom: 68%;
+    border: 0 none;
+    border-radius: 5px;
+    padding: 0;
+  }
+
+  .phone a {
+    color: #e00000;
+    font-weight: bold;
+  }
+
+  a {
+    color: #239a98;
+  }
+}
+
+.header .upc-logo,
+.header .logo2 {
+  background: url('https://www.upc.pl/etc/designs/lgi-pe-etlem/media/logos/UPC_GreenBG_sRGB.svg') 50% 50% no-repeat
+    transparent;
+  background-size: contain;
+  width: 36px;
+  height: 44px;
+  position: absolute;
+  left: 1em;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.lbok-list {
+  display: block;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  border: 1px solid #e9ebf1;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+
+  .lbok-list-title {
+    background-color: #fff;
+    color: #333;
+    font-size: 20px;
+    line-height: 1.2;
+    text-align: center;
+    font-family: 'speak_heavy', Geneva, Verdana, sans-serif;
+    padding: 15px 35px;
+    border: 0 none;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    position: relative;
+
+    @media screen and (max-width: 1033px) {
+      font-size: 18px;
+    }
+  }
+
+  .lbok-list-title > span {
+    display: block;
+    position: absolute;
+    width: 12px;
+    height: 17px;
+    top: 15px;
+  }
+
+  .lbok-list-title > span.salon {
+    left: 13px;
+  }
+
+  .lbok-list-title > span.salon svg {
+    fill: #239a98;
+  }
+
+  .lbok-list-title > span.punkt {
+    right: 20px;
+  }
+
+  .lbok-list-title > span.punkt svg {
+    fill: #d9415c;
+  }
+}
+
+.lbok-item-list {
+  margin: 0;
+  font-size: 1rem;
+  line-height: 1.2;
+  color: #333;
+  top: 52px;
+  right: 0;
+  width: 100%;
+  height: calc(100% - 52px);
+  overflow: auto;
+  touch-action: auto;
+  overflow-y: auto;
+  overflow-x: hidden;
+
+  @media screen and (max-width: 768px) {
+    overflow-y: scroll;
+    height: 500px;
+  }
+
+  p {
+    @media screen and (max-width: 1033px) {
+      font-size: 14px;
+    }
+  }
+
+  .lbok-item {
+    position: relative;
+    padding: 20px 10px;
+    border-bottom: 1px solid #eee;
+    background-color: #f5f5f5;
+
+    @media screen and (max-width: 1033px) {
+      padding: 10px 10px;
+    }
+  }
+
+  .lbok-item:last-of-type {
+    border-bottom: none;
+  }
+
+  .lbok-item:nth-child(2n) {
+    background-color: #fff;
+  }
+
+  .lbok-info-icon {
+    position: absolute;
+    width: 12px;
+    height: 17px;
+    top: 20px;
+    right: 20px;
+  }
+
+  .lbok-info .salon svg {
+    fill: #239a98;
+  }
+
+  .lbok-info .punkt svg {
+    fill: #d9415c;
+  }
+
+  .lbok-info-city {
+    font-weight: bold;
+  }
+
+  .lbok-info-street {
+    margin-bottom: 15px;
+  }
+
+  .lbok-info-emial {
+    margin-bottom: 15px;
+  }
+
+  .lbok-info-hours-title {
+    color: #333;
+    font-weight: bold;
+    margin: 15px 0 0 0;
+  }
+
+  .lbok-info-schedule {
+    font-size: 14px;
+    margin-bottom: 15px;
+  }
+
+  .lbok-info-schedule .days-list li {
+    display: table;
+    width: 100%;
+  }
+
+  .lbok-info-more {
+    display: inline-flex;
+    margin: 15px 0 0 0;
+    padding: 0;
+    color: #239a98;
+    border: 0 none;
+    border-radius: 0;
+    background: transparent;
+    -webkit-appearance: none;
+    cursor: pointer;
+    appearance: none;
+    transition: all 0.3s ease-in-out;
+  }
+
+  .special-info {
+    color: #f00;
+    margin-bottom: 14px;
+  }
+
+  .lbok-info-schedule .hours {
+    display: table-cell;
+    vertical-align: middle;
+    width: 50%;
+    white-space: nowrap;
+    text-align: right;
+    padding-right: 10px;
+    @media screen and (max-width: 478px) {
+      padding-right: 18px;
+    }
+  }
+
+  .lbok-info-schedule .day {
+    display: table-cell;
+    vertical-align: middle;
+    width: 50%;
+    white-space: nowrap;
+  }
+}
+.city-top-list {
+  margin: 5px 0 20px 0;
+  max-width: 100%;
+}
+
+@media screen and (min-width: 993px) {
+  .city-top-list {
+    width: 70% !important;
+  }
+}
+
+.lbok-info-phone > strong,
+.lbok-info-email > strong {
+  display: inline-block;
+  width: 55px;
+}
+
+.lbok-info-phone a {
+  font-weight: bold;
+  color: #e00000;
+}
+
+@media screen and (max-width: 1199px) and (min-width: 993px) {
+  .lbok-info {
+    font-size: 90%;
+  }
+}
+
+@media screen and (max-width: 540px) {
+  .map-wrapper {
+    min-height: 300px;
+  }
+}
+
+@media (min-width: 993px) and (max-width: 1199px) {
+  .lbok-list .lbok-list-title {
+    font-size: 17px;
+  }
+
+  .lbok-item-list .lbok-info-schedule {
+    font-size: 12px;
+  }
+}
+
+@media screen and (max-width: 992px) {
+  .map-container {
+    padding-left: 10px;
+    padding-right: 15px;
+    width: 100%;
+    height: 100%;
+    max-height: unset;
+    padding-bottom: 71px;
+  }
+
+  .lbok-container {
+    overflow-x: hidden;
+    padding-bottom: 3rem;
+  }
+
+  .lbok-list {
+    position: relative;
+    width: 100%;
+    margin-left: 0;
+  }
+
+  .lbok-item-list {
+    position: relative;
+    margin-top: -54px;
+  }
+}
+
+.contact-info-booksy {
+  display: flex;
+  align-items: flex-end;
+  margin-bottom: 2em;
+}
+
+.contact-info-booksy > .address {
+  margin-bottom: 0;
+}
+
+.contact-info-booksy > .address > .street {
+  min-width: 13em;
+  margin-right: 1em;
+}
+
+.map-btn-link {
+  color: #239a98;
+  border-bottom: 1px solid transparent;
+}
+
+.map-btn-link:before {
+  content: '\e55f';
+  position: relative;
+  top: 3px;
+  font-family: Material Icons;
+  font-style: normal;
+  font-size: 1.5rem;
+  margin: 0 0 0 -6px;
+  text-decoration: inherit;
+  color: #239a98;
+}
+
+.map-btn-link:hover,
+.map-btn-link:focus {
+  border-color: #239a98;
+  text-decoration: none;
+}
+
+@media screen and (max-width: 479px) {
+  .contact-info-booksy {
+    flex-direction: column;
+    align-items: baseline;
+  }
+
+  .contact-info-booksy > .address {
+    margin-bottom: 0.5rem;
+  }
+
+  .contact-info-booksy > .address > .street {
+    min-width: unset;
+    margin-right: 0;
+  }
+}
+
+@media screen and (max-width: 992px) {
+  .contact-info-booksy {
+    margin-bottom: 1em;
+  }
+
+  .booksy-btn {
+    margin-top: 1em;
+  }
+}
+
+.play-logo {
+  background: url(https://www.upc.pl/content/dam/www30-upc-pl/img/brand/play_logo.svg) 50% 50% no-repeat transparent;
+  background-size: contain;
+  width: 36px;
+  height: 44px;
+  position: absolute;
+  left: 1em;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.is-play a {
+  color: #6c43bf !important;
+}
+
+.is-play a:hover,
+.is-play a:focus {
+  border-color: #6c43bf !important;
+}
+
+.is-play .map-btn-link:before {
+  color: #6c43bf !important;
+}
+
+.is-play .header .close-btn {
+  color: #6c43bf !important;
+}
+
+.play-item .lbok-info .salon svg {
+  fill: #6c43bf !important;
+}
+
+.play-item .lbok-info-email a {
+  color: #6c43bf !important;
+}
+
+.play-item .lbok-info-more {
+  color: #6c43bf !important;
+}
+
+.d-none {
+  display: none !important;
+}
+
+.brand__container {
+  width: 60px !important;
+  display: flex;
+  right: 40px !important;
+  height: 30px !important;
+}
+
+.play-tear {
+  fill: #6c43bf !important;
+}
+
+.tear-container {
+  display: flex !important;
+  width: 26px !important;
+}
+
+.nsm-dialog {
+  height: 100%;
+  position: relative;
+  max-width: calc(80vw);
+}
+
+.nsm-dialog-btn-close {
+  top: 16px;
+  right: 16px;
+  font-weight: bold;
+}
+
+.nsm-dialog-btn-close {
+  color: #239a98;
+}
+
+.play-modal .nsm-dialog-btn-close {
+  color: #6c43bf;
+}
+
+.nsm-content {
+  width: 100%;
+  padding: 0;
+
+  @media screen and (max-width: 478px) {
+    margin-left: 0.75rem;
+    margin-right: 0.75rem;
+  }
+}
+
+.modal-info-container {
+  color: #737373;
+  .special-info {
+    font-family: 'HCo Gotham Rounded SSm', Geneva, Verdana, sans-serif;
+    background-color: #fff;
+    color: #d00;
+    padding: 1em;
+    font-size: 0.8em;
+  }
+}
+
+.phone a {
+  color: #e00000;
+  font-weight: bold;
+}
+
+.lbok-info-available-handicaps img,
+.handicaps-container img {
+  width: 50px;
+  margin-top: 8px;
+  margin-right: 2px;
+  margin-bottom: 8px;
+}
+
+.info-label {
+  color: #333;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.ng-placeholder {
+  font-family: sans-serif !important;
+  color: #333 !important;
+  font-size: 14px !important;
+}
+
+.handicap-icon {
+  width: 50px;
+  margin-top: 8px;
+  margin-right: 2px;
+  margin-bottom: 8px;
+}
+
+dmg-main-map {
+  height: inherit;
+}
+
+dmg-main-map > div {
+  height: 100%;
+}
+
+dmg-main-map .map-container {
+  height: 100%;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  padding: 0;
+}
+
+@media screen and (max-width: 478px) {
+  .nsm-dialog {
+    max-width: unset;
+  }
+}
+
+@media screen and (min-width: 1033px) {
+  .lbok-container {
+    margin-bottom: 0;
+  }
+
+  .map-container {
+    margin-bottom: 0;
+  }
+
+  .map-wrapper {
+    height: 543px;
+  }
+
+  .city-top-list {
+    width: 60%;
+  }
+
+  .lbok-info {
+    padding-top: 1rem;
+  }
+
+  .lbok-list .lbok-list-title {
+    padding-right: 0.5rem;
+  }
+}
+
+.ng-arrow-wrapper {
+  background-color: #239a98;
+  height: 44px;
+  width: 44px !important;
+}
+
+.ng-select.ng-select-single .ng-select-container {
+  height: 45px !important;
+}
+
+.ng-select-container {
+  min-height: 45px !important;
+}
+
+.ng-select {
+  height: 45px !important;
+}
+
+.ng-arrow {
+  left: 4px !important;
+  border-color: #fff transparent transparent !important;
+}
+
+.ng-select .ng-arrow-wrapper .ng-arrow {
+  top: 11px !important;
+}
+
+.ng-select.ng-select-opened > .ng-select-container .ng-arrow {
+  border-color: transparent transparent #fff !important;
+  top: 7px !important;
+}
+
+.ng-dropdown-panel .ng-dropdown-panel-items .ng-option {
+  border-width: 0 0 1px 0;
+  border-style: solid;
+  border-color: #ccc;
+}
+
+.ng-dropdown-panel .ng-dropdown-panel-items .ng-option.ng-option-marked {
+  background-color: #239a98;
+  color: white;
+}
+
+.ng-dropdown-panel .ng-dropdown-panel-items .ng-option.ng-option-selected,
+.ng-dropdown-panel .ng-dropdown-panel-items .ng-option.ng-option-selected.ng-option-marked,
+.ng-dropdown-panel .ng-dropdown-panel-items .ng-option.ng-option-selected,
+.ng-dropdown-panel .ng-dropdown-panel-items .ng-option.ng-option-selected:hover {
+  background-color: #dcf0ef;
+  color: #333;
+}
+
+.list-container {
+  position: absolute;
+  left: 5%;
+  top: 12%;
+  width: 28%;
+  height: 78%;
+  min-width: 350px;
+  background: white;
+  border-radius: 5px;
+  @media screen and (max-width: 768px) {
+    position: relative;
+    left: 0;
+    top: 0;
+    width: 100%;
+  }
+
+  &.one-item {
+    height: auto;
+  }
+}
+.h-100 {
+  height: 100% !important;
+}
+.cluster-text {
+  color: white !important;
+}
+
+.map-wrapper google-map div.lboki-cluster > div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+.nearest-action {
+  display: flex;
+  align-items: center;
+
+  .distance-col {
+    width: 50%;
+
+    div {
+      font-size: 1rem;
+      font-weight: bold;
+    }
+  }
+
+  .action-col {
+    width: 50%;
+    text-align: right;
+
+    button {
+      margin: 0;
+    }
+  }
+}
+.general-info ul {
+  padding-left: 1.5em;
+  list-style: disc;
+}
+
+.general-info ul li {
+  padding-top: 4px;
+}
+
+.wrap-logo {
+  display: flex;
+  align-items: center;
+}
+
+.wrap-logo > span {
+  font-size: 10px;
+}
+
+.booksy-logo {
+  display: block;
+  width: auto;
+  max-height: 18px;
+}
+
+.booksy-btn {
+  margin-top: 2em;
+  display: inline-block;
+}
+
+.booksy-btn > .booksy-url {
+  color: #fff;
+  margin-bottom: 0.5rem;
+  font-size: 14px;
+}
+
+.info .content .days-list {
+  list-style: none;
+}
+
+.info .content .days-list .day {
+  display: inline-block;
+  width: 14em;
+
+  @media screen and (max-width: 478px) {
+    width: 12em;
+  }
+}
+
+.info .content .days-list .hours {
+  font-weight: bold;
+}
+
+.info .contact-info .contact-label {
+  display: inline-block;
+  width: 5em;
+}
+.hidden {
+  display: none;
+}

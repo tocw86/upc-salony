@@ -1,0 +1,89 @@
+<ngx-smart-modal
+  #myModal
+  identifier="myModal"
+  [customClass]="
+    showroom && showroom.isPlay
+      ? 'nsm-dialog-animation-fade nsm-centered modal-info-container play-modal'
+      : 'nsm-dialog-animation-fade nsm-centered modal-info-container'
+  "
+>
+  <div *ngIf="showroom" [ngClass]="{ 'is-play': showroom.isPlay }" class="showroom">
+    <div class="header">
+      <div class="no-contrast-img showroomLogo" [ngClass]="showroom.isPlay ? 'play-logo' : 'upc-logo'"></div>
+      <div class="title">
+        <span class="city">{{ showroom.city }}</span> -
+        <span class="type">{{ showroom.title }}</span>
+      </div>
+    </div>
+    <div class="info-window-content">
+      <div
+        class="special-info"
+        *ngIf="showroom.specialInfo && showroom.specialInfo != ''"
+        [innerHTML]="showroom.specialInfo"
+      ></div>
+      <div class="info">
+        <div class="contact-info-booksy">
+          <div class="address">
+            <p class="info-label">Lokalizacja</p>
+            <p class="city">{{ showroom.city }}</p>
+            <p class="street" [innerHtml]="showroom.street | replace: ', ':',<br>'"></p>
+          </div>
+          <div class="wrap-map-btn">
+            <a *ngIf="googleHref" [href]="googleHref" target="blank" class="map-btn-link">
+              <span> zobacz na mapie </span>
+            </a>
+          </div>
+        </div>
+
+        <p class="info-label" *ngIf="showroom.content && showroom.content != '' && showroom.content != ' '">
+          Godziny otwarcia
+        </p>
+        <div class="content" [innerHTML]="showroom.content"></div>
+
+        <div>
+          <div class="contact-info">
+            <p class="info-label">Zamawianie lub zmiana usług</p>
+            <p class="phone" [innerHTML]="phoneFormatted"></p>
+            <p class="email">
+              <ng-container *ngIf="showroom.email">
+                <span class="contact-label">e-mail:</span
+                ><a [href]="'mailto:' + showroom.email">{{ showroom.email }}</a>
+              </ng-container>
+            </p>
+          </div>
+          <div class="contact-info">
+            <p *ngIf="showroom.isPlay; else elseUpcInfoBlock">
+              W salonach Play od teraz możesz zakupić oraz uzyskać pomoc związaną z usługami UPC.
+            </p>
+            <ng-template #elseUpcInfoBlock>
+              <p>
+                W salonach UPC od teraz możesz zakupić oraz uzyskać pomoc związaną z usługami Play.
+              </p>
+            </ng-template>
+          </div>
+          <div *ngIf="showroom.flags" class="handicaps-container" [innerHTML]="generateHandicaps"></div>
+        </div>
+        <div class="image" *ngIf="showroom.image">
+          <img [src]="apiUrl + '/assets/images/photos/' + showroom.image" alt="" />
+        </div>
+      </div>
+      <div class="extra-info">
+        <p class="handicap hidden" *ngIf="showroom.handicap">
+          - podjazd dla niepełnosprawnych
+        </p>
+        <div
+          class="extra-line"
+          [ngClass]="{ 'extra-space': showroom.handicap }"
+          *ngIf="extraLine"
+          [innerHTML]="extraLine"
+        ></div>
+        <p class="contact-us">
+          Jeśli masz pytanie dotyczące usług UPC,
+          <a href="https://www.upc.pl/pomoc/kontakt" target="_blank">
+            skontaktuj się z nami
+          </a>
+        </p>
+      </div>
+    </div>
+  </div>
+</ngx-smart-modal>
